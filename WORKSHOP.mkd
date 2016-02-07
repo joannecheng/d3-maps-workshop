@@ -1,0 +1,26 @@
+# Making Maps with D3
+
+This workshop assumes you know the following:
+
+* You know JavaScript
+* How to make a basic bar chart with D3:
+  * Selections
+  * Binding
+  * Appending
+  * Styling elements created in D3
+
+But if you don't know D3 or are kind of fuzzy, here's a basic introduction.
+
+(basic introduction here)
+
+Alright, we're all caught up. Let's start talking about maps.
+
+(Let's make a map tutorial)
+
+## Thematic maps
+
+When we want our maps to focus on specific data that doesn't relate to geographic features,
+such as boundaries, transportation, or geologic features, we can create thematic maps.
+Now that we have a clean basemap created, we can plot a specific subject of data on top of the
+map to communicate important information and patterns.
+Census maps are popular examples of thematic maps.

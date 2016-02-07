@@ -1,0 +1,11 @@
+h1.title {
+  margin-top: 1em;
+}
+
+path.state-boundary {
+  fill: #ccc;
+  stroke: #fff;
+}
+
+circle.earthquake-marker {
+}
