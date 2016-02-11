@@ -86,4 +86,4 @@ Now that we have a clean basemap created, we can plot a specific subject of data
 map to communicate important information and patterns.
 Election maps are pretty popular examples of thematic maps.
 Census maps are popular examples of thematic maps.
-Tonight, we're going to be mapping earthquakes.
+Tonight, we're going to be mapping earthquakes and poverty.

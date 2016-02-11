@@ -61,5 +61,8 @@ d3.json("us.json", function(err, data) {
   });
 });
 
-// Size of circle = M scale of 
+// Size of circle = M scale of earthquake
 // What else can we do to improve this map?
+//   * zooming, tooltips?
+//   * navigation
+//   * status - whether they've been reviewed by a human yet
