@@ -26,6 +26,8 @@ var baseMapSVG = svg.attr({
 // projection. This is meant to display the United states
 // with hawaii and alaska in the lower left corner, scaled down
 
+// lots of other projections here
+
 var projection = d3.geo.albersUsa();
 
 // Path generator
@@ -39,6 +41,7 @@ d3.json("us.json", function(err, data) {
   // Exploring the topojson object
   // We have land, states, and counties. What does it look like to plot each?
   console.log(data.objects);
+
   // Plot the outline
   baseMapSVG.append("path")
     .datum(topojson.feature(data, data.objects.land))
@@ -54,3 +57,9 @@ d3.json("us.json", function(err, data) {
     .datum(topojson.feature(data, data.objects.counties))
     .attr({ class: 'county-boundary', d: path});
 });
+
+// Questions:
+//
+// What does it look like to change projections?
+// How else can we style this?
+// Can we add mouse events to the items we just drew?

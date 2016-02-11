@@ -1,7 +1,5 @@
-// Why load topojson?
-
 var width = 960;
-var height = 500;
+var height = 600;
 
 // First, let's create an svg container
 
@@ -23,6 +21,13 @@ var projection = d3.geo.albersUsa();
 var path = d3.geo.path()
   .projection(projection);
 
+// We need to use an exponential scale
+// because magnitude rating is on an exponential scale
+// add this later
+var radiusScale = d3.scale.pow()
+  .range([1, 10])
+  .domain([1, 10]);
+
 d3.json("us.json", function(err, data) {
   // Lets plot states
   baseMapSVG.append("path")
@@ -30,31 +35,31 @@ d3.json("us.json", function(err, data) {
     .attr({ class: 'state-boundary', d: path});
 
   // Now let's plot points - let's use earthquake data
-  d3.csv("1.0_month.csv", function(err, earthquakeData) {
+  d3.csv("1.0_week.csv", function(err, earthquakeData) {
+    console.log(earthquakeData);
     var earthquakeMarkers= svg.append("g")
       .attr({class: "markers"});
-    var coordinates = earthquakeData.map(function(d) {
-      console.log(d.longitude, d.latitude);
-      return projection([parseFloat(d.longitude), parseFloat(d.latitude)]) || [0, 0];
-    });
-    console.log(coordinates);
 
     earthquakeMarkers.selectAll("circle.earthquake-marker")
-      .data(coordinates).enter()
+      .data(earthquakeData).enter()
       .append("circle")
       .attr({
         r: 1,
         cx: 0,
         cy: 0,
-        opacity: 0.4,
-        transform: function(d) { return "translate("+ d +")" },
+        transform: function(d) {
+          // use the projection function to pass in an array of coordinates and return the x,y coordinates to plot this thing on a map
+          var coordinates = projection([parseFloat(d.longitude), parseFloat(d.latitude)]);
+          return "translate("+ coordinates +")"
+        },
         class: 'earthquake-marker'
-      });
+      })
+    // Adding mouse events
+    .on("mouseover", function(d) {
+      console.log(d.place);
+    });
   });
 });
 
-// For now, we're going to use the json file from
-// http://bl.ocks.org/mbostock/4090848
-// http://bl.ocks.org/mbostock/raw/4090846/us.json
-// https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html
-
+// Size of circle = M scale of 
+// What else can we do to improve this map?

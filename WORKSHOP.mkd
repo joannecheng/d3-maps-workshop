@@ -59,14 +59,24 @@ to be drawing a basemap of the continental US with state boundaries.
 
 (File formats: shapefiles, geojson, topojson: BORING MAKE IT SHORT)
 
+Before we actually create a map with JavaScript, we need to talk about some file
+formats that are used in map making. Shapefiles are a popular, common file format
+that can describe geometry and associated attributes. However, shapefiles are binary
+files, which means they're not readable by humans. There are tools out there to
+translate shapefiles to more human readable formats, such as GeoJSON. GeoJSON is a
+popular JSON format used for representing geographic data.
+
 We could go through the hassle of digging through the internet for shapefiles,
 converting it to geojson, then converting it to topojson, but this tutorial from
 Mike Bostock does a really good job of it. It's also quite tedious and I try to
 write scripts to automate that process so I don't have to keep doing it.
 https://bost.ocks.org/mike/map/
 
-We have a Topojson file here. This file contains the outline for the US, state
-boundaries, and county boundaries. Let's draw each.
+Open basemap.html. The javascript we want lives in `js/basemap.js`. We also have
+a topojson file called 'us.json'. Let's load it in using d3.json.
+
+This file contains the outline for the US, state
+boundaries, and county boundaries. Let's go through the process to draw each
 
 ## Thematic maps
 
@@ -74,4 +84,6 @@ When we want our maps to focus on specific data that doesn't relate to geographi
 such as boundaries, transportation, or geologic features, we can create thematic maps.
 Now that we have a clean basemap created, we can plot a specific subject of data on top of the
 map to communicate important information and patterns.
+Election maps are pretty popular examples of thematic maps.
 Census maps are popular examples of thematic maps.
+Tonight, we're going to be mapping earthquakes.
