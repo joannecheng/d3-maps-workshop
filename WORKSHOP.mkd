@@ -2,20 +2,71 @@
 
 This workshop assumes you know the following:
 
-* You know JavaScript
+* JavaScript
 * How to make a basic bar chart with D3:
   * Selections
-  * Binding
   * Appending
-  * Styling elements created in D3
+  * Binding Data
+  * Path Generation
 
 But if you don't know D3 or are kind of fuzzy, here's a basic introduction.
+(Open d3_review.html)
 
-(basic introduction here)
+* Selections:
+  * change fill color
+  * Change "r"
+  * Pass in function to randomly change cx
+  * Change class of circles
+  * Append a rectangle to parent
 
-Alright, we're all caught up. Let's start talking about maps.
+* Binding Data
+  * Select #example_5 svg and append a "g" element
+  * Call group "bubbles"
+  * Give an array of objects
+  * create "bubbles" based on size and position attributes
+  * Realize you really need to create a scale
 
-(Let's make a map tutorial)
+* Path Generation
+  * SVG has a language used to define path elements
+  * The language for a path lives in the `d` attribute
+  * Path generators need to define an x and a y function
+  * Y is upside down, so we need to subtract y value from height
+
+Alright, we're all caught up. Let's start building a map.
+
+## Basemap
+
+When we use mapping libraries like mapbox, Google maps, here's what the code looks like:
+
+(examples here)
+
+We have a few lines up here to draw the base map at this location
+with a few settings, like zoom settings, and then we have a few
+lines to create a marker. The JS library takes care drawing
+the map, translating lat/long to pixel values, and adds fun features
+like labels, scrolling, colors, styles, etc.
+
+Drawing maps with D3 is nothing like that.
+You don't even get map boundaries - you need to find shapefiles
+yourself and translate it to JSON to load onto the page. However,
+D3 provides some powerful tools to let us draw maps exactly how
+we want them to be displayed on the page.
+
+We're going to first draw a "basemap". A basemap is a map that shows
+geographic context: country, state, and county borders are propreties
+of basemaps. Geological features are also basemap properties. We're going
+to be drawing a basemap of the continental US with state boundaries.
+
+(File formats: shapefiles, geojson, topojson: BORING MAKE IT SHORT)
+
+We could go through the hassle of digging through the internet for shapefiles,
+converting it to geojson, then converting it to topojson, but this tutorial from
+Mike Bostock does a really good job of it. It's also quite tedious and I try to
+write scripts to automate that process so I don't have to keep doing it.
+https://bost.ocks.org/mike/map/
+
+We have a Topojson file here. This file contains the outline for the US, state
+boundaries, and county boundaries. Let's draw each.
 
 ## Thematic maps
 

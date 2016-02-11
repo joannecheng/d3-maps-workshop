@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <meta http-equiv="content-type" content="text/html; charset=UTF8">
   <head>
     <title>A Map of the US</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/main.css">
+<style>
+path.land-boundary {
+  fill: #888;
+}
+
+path.state-boundary {
+  fill: #888;
+}
+
+path.county-boundary {
+  fill: #888;
+}
+</style>
   </head>
 
   <body>
     <div class="container">
       <section class="header">
         <h1 class="title">A Map of the US</h1>
-      </header>
+      </section>
 
       <div id="map_container">
         <svg></svg>
       </div>
 
       <script src="js/d3.js"></script>
+      <script src="js/topojson.js"></script>
       <script src="js/basemap.js"></script>
     </div>
   </body>
