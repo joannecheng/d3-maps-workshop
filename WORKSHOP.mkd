@@ -32,58 +32,6 @@ But if you don't know D3 or are kind of fuzzy, here's a basic introduction.
   * Path generators need to define an x and a y function
   * Y is upside down, so we need to subtract y value from height
 
-Alright, we're all caught up. Let's start building a map.
+TODO:
 
-## Basemap
-
-When we use mapping libraries like mapbox, Google maps, here's what the code looks like:
-
-(examples here)
-
-We have a few lines up here to draw the base map at this location
-with a few settings, like zoom settings, and then we have a few
-lines to create a marker. The JS library takes care drawing
-the map, translating lat/long to pixel values, and adds fun features
-like labels, scrolling, colors, styles, etc.
-
-Drawing maps with D3 is nothing like that.
-You don't even get map boundaries - you need to find shapefiles
-yourself and translate it to JSON to load onto the page. However,
-D3 provides some powerful tools to let us draw maps exactly how
-we want them to be displayed on the page.
-
-We're going to first draw a "basemap". A basemap is a map that shows
-geographic context: country, state, and county borders are propreties
-of basemaps. Geological features are also basemap properties. We're going
-to be drawing a basemap of the continental US with state boundaries.
-
-(File formats: shapefiles, geojson, topojson: BORING MAKE IT SHORT)
-
-Before we actually create a map with JavaScript, we need to talk about some file
-formats that are used in map making. Shapefiles are a popular, common file format
-that can describe geometry and associated attributes. However, shapefiles are binary
-files, which means they're not readable by humans. There are tools out there to
-translate shapefiles to more human readable formats, such as GeoJSON. GeoJSON is a
-popular JSON format used for representing geographic data.
-
-We could go through the hassle of digging through the internet for shapefiles,
-converting it to geojson, then converting it to topojson, but this tutorial from
-Mike Bostock does a really good job of it. It's also quite tedious and I try to
-write scripts to automate that process so I don't have to keep doing it.
-https://bost.ocks.org/mike/map/
-
-Open basemap.html. The javascript we want lives in `js/basemap.js`. We also have
-a topojson file called 'us.json'. Let's load it in using d3.json.
-
-This file contains the outline for the US, state
-boundaries, and county boundaries. Let's go through the process to draw each
-
-## Thematic maps
-
-When we want our maps to focus on specific data that doesn't relate to geographic features,
-such as boundaries, transportation, or geologic features, we can create thematic maps.
-Now that we have a clean basemap created, we can plot a specific subject of data on top of the
-map to communicate important information and patterns.
-Election maps are pretty popular examples of thematic maps.
-Census maps are popular examples of thematic maps.
-Tonight, we're going to be mapping earthquakes and poverty.
+* Write outline...
