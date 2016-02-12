@@ -1,0 +1,11 @@
+# Making Maps with D3
+
+Workshop given on February 11, 2016 at Twitter Boulder.
+
+To run this project, please clone this repo, cd into this repo, and run:
+
+```python
+python -m SimpleHTTPServer 8081
+```
+
+All completed examples are in the `final_examples/` directory.
